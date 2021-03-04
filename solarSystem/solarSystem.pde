@@ -1,4 +1,6 @@
-//import gifAnimation.*;
+import gifAnimation.*;
+
+boolean isPaused = false;
 
 PShape earth;
 PShape sun;
@@ -39,8 +41,8 @@ float currentJupiterSpeed = 0;
 float currentNeptuneSpeed = 0;
 float currentEuropeSpeed = 0;
 
-//int framesGif = 0;
-//GifMaker gifExport;
+int framesGif = 0;
+GifMaker gifExport;
 
 
 void setup ( ) {
@@ -113,13 +115,17 @@ void setup ( ) {
   europe.setTexture(img);
   endShape (CLOSE) ;
   
-  //gifExport = new GifMaker(this, "export.gif");
-  //gifExport.setRepeat(0);
+  gifExport = new GifMaker(this, "export.gif");
+  gifExport.setRepeat(0);
 }
 
 void draw ( ) {
   background.resize(width,height);
   background(background);
+  
+  textSize(20);
+  textAlign(LEFT);
+  text("'p' = pausar/reanudar el programa.", 10, 30);
   translate(width/2, height/2, 0);
   rotateZ(radians(-7));
   
@@ -223,6 +229,8 @@ void draw ( ) {
   shape(neptune);
   popMatrix();
   
+  
+  if(isPaused) return;
   ang ++;
   if(ang > 360) ang = 0;
   
@@ -247,16 +255,20 @@ void draw ( ) {
   currentEuropeSpeed += europeSpeed;
   if(currentEuropeSpeed > 360) currentEuropeSpeed = 0;
   
-  /*if(framesGif > 4){
+  if(framesGif > 4){
     gifExport.addFrame();
     framesGif = 0;
   }
-  framesGif++;*/
+  framesGif++;
 }
 
 
-/*void keyPressed(){
+void keyPressed(){
   if(key == 's'){
     gifExport.finish();
   }
-}*/
+  
+  if(key == 'p'){
+    isPaused = !isPaused;
+  }
+}
