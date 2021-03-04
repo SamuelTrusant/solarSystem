@@ -1,4 +1,4 @@
-import gifAnimation.*;
+//import gifAnimation.*;
 
 boolean isPaused = false;
 
@@ -41,8 +41,8 @@ float currentJupiterSpeed = 0;
 float currentNeptuneSpeed = 0;
 float currentEuropeSpeed = 0;
 
-int framesGif = 0;
-GifMaker gifExport;
+//int framesGif = 0;
+//GifMaker gifExport;
 
 
 void setup ( ) {
@@ -115,8 +115,8 @@ void setup ( ) {
   europe.setTexture(img);
   endShape (CLOSE) ;
   
-  gifExport = new GifMaker(this, "export.gif");
-  gifExport.setRepeat(0);
+  //gifExport = new GifMaker(this, "export.gif");
+  //gifExport.setRepeat(0);
 }
 
 void draw ( ) {
@@ -255,18 +255,18 @@ void draw ( ) {
   currentEuropeSpeed += europeSpeed;
   if(currentEuropeSpeed > 360) currentEuropeSpeed = 0;
   
-  if(framesGif > 4){
+  /*if(framesGif > 4){
     gifExport.addFrame();
     framesGif = 0;
   }
-  framesGif++;
+  framesGif++;*/
 }
 
 
 void keyPressed(){
-  if(key == 's'){
+  /*if(key == 's'){
     gifExport.finish();
-  }
+  }*/
   
   if(key == 'p'){
     isPaused = !isPaused;
