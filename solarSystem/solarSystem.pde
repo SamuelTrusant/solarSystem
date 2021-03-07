@@ -132,8 +132,8 @@ void draw ( ) {
   //Sol
   textSize(40);
   pushMatrix();
-  text("Sun", 0, -(sunr + sunr/4));
   textAlign(CENTER);
+  text("Sun", 0, -(sunr + sunr/4));
   rotateY(radians(ang));
   shape(sun);
   popMatrix();
